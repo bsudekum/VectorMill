@@ -1,0 +1,26 @@
+html,
+body,
+#map {
+  height: 100%;
+  margin:0;
+}
+
+#map{
+  width:70%;
+  float: right;
+}
+
+#editor{
+  height: 100%;
+  width: 30%;
+  float: left;
+  background:#E6E7D3;
+}
+
+.main{
+  width: 89%;
+	height: 94%;
+	position: relative;
+	margin: 20px auto;
+	display: block;
+}
