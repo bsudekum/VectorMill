@@ -78,7 +78,7 @@ $('#save').click(function(){
     success:function(response){
        	window.location.hash = response.id;
        	$('.modal').show()
-       	$('.modal h4').after("<p>Link: <a href='" + window.location.origin + "/VectorMill/embed/#" + response.id + "'>" + window.location.origin + "/embed/#" + response.id +"</a></p>");
+       	$('.modal h4').after("<p>Link: <a href='" + window.location.origin + "/VectorMill/embed/#" + response.id + "'>" + window.location.origin + "/VectorMill/embed/#" + response.id +"</a></p>");
        	$('.modal h4').after("<p>iframe: &lt;iframe width='500px' height='300px' frameBorder='0' src='" + window.location.origin + '/VectorMill/embed/#' + response.id + "' &gt;&lt;/iframe&gt;</p>")
        	$('.modal iframe').attr('src', window.location.origin + '/embed/#' + response.id)
        	$('#editor, #map').click(function(){
