@@ -2,15 +2,15 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
   <meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0'/>
-  <title>VectorMill</title>
-  <link href='style.css' rel='stylesheet' />
+  <title>Vector Mill</title>
+  <link href='../style.css' rel='stylesheet' />
   <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
   <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
   <!--[if lte IE 8]>
     <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
   <![endif]-->
   <script src='http://d3js.org/d3.v3.min.js' charset='utf-8'></script>
-  <script src='js/tilejson.js'></script>
+  <script src='../js/tilejson.js'></script>
   <script src='http://code.jquery.com/jquery-1.8.2.min.js'></script>
 
   <style class='style'>/* ORDER
@@ -117,20 +117,15 @@ path {
   </style>
 </head>
 
-<body>
+<body id='embed'>
 <div id='map'></div>
 <div id='editor'>
-  <button id='save'>Save and Share</button>
-  <p>Style your map here:</p>
+  <button id='save'>Save</button>
   <TEXTAREA class='main'>
   </textarea>
 </div>
-<div class='modal'>
-  <h4>Share your map</h4>
-  <iframe src='' frameborder='0'></iframe>
-</div>
 
-<script src='js/site.js'></script>
+<script src='../js/site.js'></script>
 <!-- <script src='js/leaflet-hash.js'></script> -->
 </body>
 </html>

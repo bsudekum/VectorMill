@@ -3,6 +3,7 @@ body,
 #map {
   height: 100%;
   margin:0;
+  font-family: 'helvetica'
 }
 
 #map{
@@ -14,13 +15,74 @@ body,
   height: 100%;
   width: 30%;
   float: left;
-  background:#E6E7D3;
+  background:#F7F7F7;
+}
+#editor p{
+	margin: 15px 0 0 15px;
+	font-size: 12px;
 }
 
 .main{
   width: 89%;
-	height: 94%;
+	height: 85%;
 	position: relative;
 	margin: 20px auto;
 	display: block;
+	border: 1px solid #C4C4C4;
+	border-radius: 3px;
+	font-family: Garamond;
+}
+
+#save{
+	margin: 10px auto 0;
+	width: 89%;
+	border: none;
+	border-radius: 3px;
+	padding: 8px;
+	background-color: #C4C4C4;
+	color: #FFF;
+	display: block;
+}
+.modal {
+	display: none;
+	position: absolute;
+	top: 15%;
+	bottom: 5%;
+	left: 25%;
+	right: 25%;
+	width: 50%;
+	text-align: center;
+	background: #F3F3F3;
+	border-radius: 2px;
+}
+.modal p {
+	text-align: left;
+	margin-left:10px;
+}
+.modal iframe {
+	width: 96%;
+	height: 60%;
+}
+#save:active,
+#save:hover{
+	background-color:#a7a7a7;
+}
+
+body#embed #map{
+	width: 100%;
+}
+
+body#embed .main{
+	display: none;
+}
+
+path{
+    opacity: 0;
+    -webkit-transition: opacity 0.2s linear;
+       -moz-transition: opacity 0.2s linear;
+         -o-transition: opacity 0.2s linear;
+            transition: opacity 0.2s linear;
+}
+path{
+  opacity: 1;
 }
