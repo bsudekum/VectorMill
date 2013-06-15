@@ -18,11 +18,12 @@
 2. Text
 3. Roads
 4. Water
-5. Polygon features*/
+5. Polygon features
+6. POIS */
 
 /*map background*/
 .leaflet-container {
-  background-color:#ddd;
+  background-color:#efebe2;
 }
 
 /*text*/
@@ -33,19 +34,19 @@
 
 /*Streets*/
 path {
-  stroke-linejoin; round; stroke-linecap: round; fill: none
+  stroke-linejoin; round; stroke-linecap: butt; fill: none
 }
 .highway{
   stroke-width:7px;
   stroke:#F78545;
 }
 .major_road{
-  stroke-width:3px;
-  stroke:#FFCD2F;
+  stroke-width:8px;
+  stroke:white;
 }
 .minor_road{
-  stroke-width:1px;
-  stroke:#707070;
+  stroke-width:4px;
+  stroke:white;
 }
 .path{
   stroke-width:0.5px;
@@ -54,6 +55,25 @@ path {
 .rail {
   stroke-dasharray:5,5;
   stroke:grey;
+}
+.road-outline.highway{
+  stroke-width:7px;
+  stroke:#F78545;
+}
+.road-outline.major_road{
+  stroke-width:10px;
+  stroke:grey;
+  stroke-linecap:butt;
+}
+.road-outline.minor_road{
+  stroke-width:5px;
+  stroke:grey;
+}
+.road-outline.path{
+  stroke:none;
+}
+.road-outline.rail {
+  stroke:none;
 }
 
 /*Water*/
@@ -113,6 +133,14 @@ path {
   fill:#A1CA9F;
   stroke:none;
   opacity:.2;
+}
+
+.pois.restaurant,
+.pois.pub,
+.pois.fast_food,
+.pois.cafe,
+.pois.hotel{
+  fill:#AB71AD;
 }
   </style>
 </head>
