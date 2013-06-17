@@ -54,37 +54,40 @@ function addRoad(){
 map.on('moveend',addRoad)
 addRoad();
 
+var editor = CodeMirror.fromTextArea(document.getElementById('main'), {
+    mode: 'css',
+    lineWrapping: true,
+    tabSize: 2
+});
+
 //Update style
-if(window.location.hash) {
+if (window.location.hash) {
 	var hash = window.location.hash.substr(1);
  	$.ajax({
     type:'GET',
     url: 'https://api.github.com/gists/' + hash,
     success:function(response){
     	var css = response.files.map.content;
-    	$('.main').html(css)
-    	$('.style').html(css)
+    	editor.setValue(css);
+    	$('.style').html(css);
     },
     error:function(error){
-    	console.log(error)
+    	console.log(error);
     }
-  })
+  });
 }
 
 var style = $('.style').text();
-$('.main').html(style)
+editor.setValue(style);
 
-$('.main').keyup(function(){
-  var text = $(this).val()
-  $('.style').html(text);
+editor.on('change', function(){
+  $('.style').html(editor.getValue());
 });
-
-
 
 //Save style to gist
 $('#save').click(function(){
-	window.location.hash = '#';	
-	var text = $('.main').val();
+	window.location.hash = '#';
+	var text = editor.getValue();
 	var url = window.location.href;
 
 	$.ajax({
@@ -95,18 +98,18 @@ $('#save').click(function(){
         "files": {
             "map": {
                 "content": text
-            }          
+            }
         },
     }),
     success:function(response){
        	window.location.hash = response.id;
-       	$('.modal').show()
+       	$('.modal').show();
        	$('.modal h4').after("<p>Link: <a href='" + window.location.origin + "/VectorMill/embed/#" + response.id + "'>" + window.location.origin + "/VectorMill/embed/#" + response.id +"</a></p>");
        	$('.modal h4').after("<p>iframe: &lt;iframe width='500px' height='300px' frameBorder='0' src='" + window.location.origin + '/VectorMill/embed/#' + response.id + "' &gt;&lt;/iframe&gt;</p>")
        	$('.modal iframe').attr('src', window.location.origin + '/VectorMill/embed/#' + response.id)
        	$('#editor, #map').click(function(){
        		$('.modal').hide();
-       	})
+       	});
     }
 	});
 });
