@@ -10,6 +10,7 @@
     <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
   <![endif]-->
   <script src='http://d3js.org/d3.v3.min.js' charset='utf-8'></script>
+  <link href='js/codemirror/lib/codemirror.css' rel='stylesheet' />
   <script src='js/tilejson.js'></script>
   <script src='http://code.jquery.com/jquery-1.8.2.min.js'></script>
 
@@ -150,7 +151,7 @@ path {
 <div id='editor'>
   <button id='save'>Save and Share</button>
   <p>Style your map here:</p>
-  <TEXTAREA class='main'>
+  <textarea id='main' class='main'>
   </textarea>
 </div>
 <div class='modal'>
@@ -158,6 +159,8 @@ path {
   <iframe src='' frameborder='0'></iframe>
 </div>
 
+<script src='js/codemirror/lib/codemirror.js'></script>
+<script src='js/codemirror/mode/css/css.js'></script>
 <script src='js/site.js'></script>
 <!-- <script src='js/leaflet-hash.js'></script> -->
 </body>
