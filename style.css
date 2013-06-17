@@ -22,15 +22,15 @@ body,
 	font-size: 12px;
 }
 
-.main{
-  width: 89%;
-	height: 85%;
-	position: relative;
-	margin: 20px auto;
-	display: block;
-	border: 1px solid #C4C4C4;
-	border-radius: 3px;
-	font-family: Garamond;
+.CodeMirror {
+    width: 89%;
+    height: 85% !important;
+    margin: 20px auto;
+    border: 1px solid #C4C4C4;
+    border-radius: 3px;
+    /*
+    font-family: Garamond;
+     */
 }
 
 #save{
