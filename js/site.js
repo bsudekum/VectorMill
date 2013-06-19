@@ -22,24 +22,21 @@ var water = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-wa
   updateWhenIdle: true
 }).addTo(map);
 
-var pois = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-pois/{z}/{x}/{y}.json', {
-  class: function(d) {return 'pois ' + d.properties.kind; console.log(d.properties.kind)},
-  text: function(d) {return d.properties.name },
-  updateWhenIdle: true
-}).addTo(map);
+// var pois = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-pois/{z}/{x}/{y}.json', {
+//   class: function(d) {return 'pois ' + d.properties.kind; console.log(d.properties.kind)},
+//   text: function(d) {return d.properties.name },
+//   updateWhenIdle: true
+// }).addTo(map);
 
-var roadOutline = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-highroad/{z}/{x}/{y}.json', {
-  class: function(d) { return 'road-outline ' + d.properties.kind},
+var road = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-highroad/{z}/{x}/{y}.json', {
+  class: function(d) { return d.properties.kind},
+  updateWhenIdle: true,
 }).addTo(map);
 
 //Attempting to get roads and labels on top of everything else.
 //Super hacky :-/
 function addRoad(){
   setTimeout(function(){
-    var road = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-highroad/{z}/{x}/{y}.json', {
-      class: function(d) { return d.properties.kind},
-      updateWhenIdle: true,
-    }).addTo(map);
     var label = new L.TileLayer.d3_geoJSON('http://tile.openstreetmap.us/vectiles-skeletron/{z}/{x}/{y}.json', {
       id: function(d) {return d.geometry.coordinates[0]+d.geometry.coordinates[1]},
       id2: function(d) {return "#"+d.geometry.coordinates[0]+d.geometry.coordinates[1]},
@@ -48,7 +45,7 @@ function addRoad(){
       text: function(d) {return d.properties.name },
       updateWhenIdle: true
     }).addTo(map)
-  },700)
+  },100)
 }
 
 map.on('moveend',addRoad)
@@ -72,7 +69,6 @@ if (window.location.hash) {
     	$('.style').html(css);
     },
     error:function(error){
-    	console.log(error);
     }
   });
 }
